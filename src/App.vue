@@ -1,17 +1,143 @@
 <template>
    <v-app light>
 
-    <v-content>
-            <v-toolbar color="transparent" dense dark>
-      <v-toolbar-title v-text="title"></v-toolbar-title>
-    </v-toolbar>
+    <v-app-bar app dense color='white' flat>
+      olafkrueger.net
+      <v-spacer />
+      Contact
+    </v-app-bar>
+    
+      <v-content>
+          <v-img
+            :min-height="'calc(100vh - ' + $vuetify.application.top + 'px)'"
+            src="./assets/me3.jpg"
+          >          
+        <v-divider />
+          <v-container fill-height>
+            <v-row
+              align="center"
+              justify="center"
+            >
+          
+              <v-col cols="12">
+                <v-card flat color="transparent">
+                  <v-container>
+                    <v-row
+                      align="center"
+                      justify="center"
+                      class="display-4 font-weight-thin white--text pa-3"
+                    >
+                      driven by passion
+                    </v-row>
+                    <v-row
+                      align="center"
+                      justify="center"
+                      class=" pa-3"
+                    >
+                      <div class="pa-1" v-for="(tag, i) in tags"
+                          :key="i">
+                        <v-chip
+                          outlined
+                          :color="tag.color"
+                          :key="tag.id"
+                          >
+                          {{tag.text}}
+                        </v-chip>
+                      </div>                 
+                    </v-row>                  
+                  </v-container>
+                </v-card>
+              </v-col>
+          
+            </v-row>
+            <v-row    
+              align="center"
+              justify="center"
+              class=" pa-3"
+            >
+            
+              <v-col cols="12" xs="12" sm="12" md="12">
+                <v-card>
+                  <v-card-title>About me</v-card-title>
+                  <v-card-text>Vuejs, NodeJS, Fastify, JAMStack, REST, SAP, ABAP, Apache Flex, Apache Royale, AS3, PHP</v-card-text>
+                </v-card>
+              </v-col>
+            
+            
+              <!--
+              <v-col cols="12" xs="12" sm="12" md="4">
+                <v-card>
+                  <v-card-title>Open</v-card-title>
+                  <v-card-text></v-card-text>
+                </v-card>
+              </v-col>
+              <v-col cols="12" xs="12" sm="12" md="4">
+                <v-card>
+                  <v-card-title>Neuguerig</v-card-title>
+                </v-card> 
+              </v-col>   
+              -->      
+      <!--
+      <section id="about-me">
+        <div class="py-12"></div>
+
+        <v-container class="text-center">
+          <h2 class="display-2 font-weight-bold white--text mb-3">ABOUT ME</h2>
+
+          <v-responsive
+            class="mx-auto mb-8"
+            width="56"
+          >
+            <v-divider class="mb-1"></v-divider>
+
+            <v-divider></v-divider>
+          </v-responsive>
+
+          <v-responsive
+            class="mx-auto title font-weight-light white--text mb-8"
+            max-width="720"
+          >
+            Vuetify is the #1 component library for Vue.js and has been in active development since 2016. The goal of the project is to provide users with everything that is needed to build rich and engaging web applications using the Material Design specification. It accomplishes that with a consistent update cycle, Long-term Support (LTS) for previous versions, responsive community engagement, a vast ecosystem of resources and a dedication to quality components.
+          </v-responsive>
+
+          <v-avatar
+            class="elevation-12 mb-12"
+            size="128"
+          >
+            <v-img src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
+          </v-avatar>
+
+          <div></div>
+
+          <v-btn
+            color="grey"
+            href="https://vuetifyjs.com"
+            outlined
+            large
+          >
+            <span class="grey--text text--darken-1 font-weight-bold">
+              Vuetify Documentation
+            </span>
+          </v-btn>
+        </v-container>
+
+        <div class="py-12"></div>
+      </section> 
+      -->                     
+            </v-row>
+            
+          </v-container>
+          
+          </v-img>
+        </v-content>
+    <!--
     <v-carousel v-model="model">
       <v-carousel-item
-        v-for="(color) in colors"
-        :key="color"
+        v-for="(view) in views"
+        :key="view.color"
       >
         <v-sheet
-          :color="color"
+          :color="view.color"
           height="100%"
           tile
         >
@@ -28,31 +154,23 @@
                       justify="center"
                       class="display-4 font-weight-thin pa-3"
                     >
-                      driven by passion
+                      {{view.title}}
                     </v-row>
                     <v-row
                       align="center"
                       justify="center"
                       class=" pa-3"
                     >
-                      <div class="pa-1" v-for="(item, i) in items"
+                      <div class="pa-1" v-for="(tag, i) in view.tags"
                           :key="i">
                         <v-chip
                           outlined
                           color="white"
-                          :key="item.id"
+                          :key="tag.id"
                           >
-                          {{item.text}}
+                          {{tag.text}}
                         </v-chip>
-                      </div>
-                      <div class="pa-1">
-                        <v-chip 
-                          outlined
-                          color="white"
-                          >
-                          NodeJS
-                        </v-chip>
-                      </div>                  
+                      </div>                 
                     </v-row>                  
                   </v-container>
                 </v-card>
@@ -62,6 +180,8 @@
         </v-sheet>
       </v-carousel-item>
     </v-carousel>
+    -->
+    <!--
       <section>
         <v-layout
           column
@@ -86,9 +206,10 @@
                       <v-icon x-large class="blue--text text--lighten-2">mdi-palette</v-icon>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
-                      <div class="headline text-center">Material Design</div>
+                      <div class="headline text-center">Passionized</div>
                     </v-card-title>
                     <v-card-text>
+                      
                       Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
                       Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
                       Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti.
@@ -116,12 +237,11 @@
                       <v-icon x-large class="blue--text text--lighten-2">mdi-wrench</v-icon>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
-                      <div class="headline text-center">Completely Open Sourced</div>
+                      <div class="headline text-center">Open</div>
                     </v-card-title>
                     <v-card-text>
-                      Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
-                      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                      Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti.
+                      Always question the status quo!
+
                     </v-card-text>
                   </v-card>
                 </v-flex>
@@ -216,7 +336,7 @@
           </v-flex>
         </v-layout>
       </v-footer>
-    </v-content>
+      -->
   </v-app>
 </template>
 
@@ -230,12 +350,55 @@ export default {
   },
 
   data: () => ({
-    items: [
-      { text:'Vuejs', icon:'' },
-      { text:'NodeJS', icon:'' },
-      { text:'SAP', icon:'' },
+    tags: [
+      { text:'Father', icon:'' , color: 'white'},
+     // { text:'Husband', icon:'', color: 'grey' },
+      { text:'Developer', icon:'', color: 'white' },
+    //{ text:'Enthusiast', icon:'', color: 'grey' },
+      { text:'Fool', icon:'', color: 'white' },
+
     ],
-    title: "olafkrueger.net",
+    views: [
+      {
+        title: 'driven by passion',
+        color: 'red',
+        tags: [
+          { text:'Vuejs', icon:'' },
+          { text:'NodeJS', icon:'' },
+          { text:'SAP', icon:'' },
+        ]
+      },
+      {
+        title: 'work',
+        color: 'primary',
+        tags: [
+          { text:'Vuejs', icon:'' },
+          { text:'NodeJS', icon:'' },
+          { text:'SAP', icon:'' },
+        ]
+      },
+      {
+        title: 'life',
+        color: 'orange',
+        tags: [
+          { text:'Vuejs', icon:'' },
+          { text:'NodeJS', icon:'' },
+          { text:'SAP', icon:'' },
+        ]
+      },
+      {
+        title: 'contact',
+        color: 'yellow darken-2',
+        tags: [
+          { text:'mail@olafkrueger.net', icon:'' },
+          { text:'GitHub', icon:'' },
+          { text:'Twitter', icon:'' },
+          { text:'LinkedIn', icon:'' },
+          { text:'Xing', icon:'' },
+        ]
+      },
+    ],
+    title: "",
         colors: [
           'primary',
           'secondary',
